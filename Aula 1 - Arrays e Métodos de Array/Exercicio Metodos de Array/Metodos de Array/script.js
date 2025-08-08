@@ -1,52 +1,56 @@
 function executarPush() {
   const array = ['🍎', '🍌'];
+  array.push("🍇")//coloca na ultima posição
   const resultado = array;
   document.getElementById('resultado-push').textContent = resultado;
 }
 
 function executarPop() {
   const array = ['🍎', '🍌', '🍇'];
+  array.pop();//retira a ultima posição
   const resultado = array;
   document.getElementById('resultado-pop').textContent = resultado;
 }
 
 function executarShift() {
   const array = ['🍎', '🍌', '🍇'];
+  array.shift();//tira a primeira posição
   const resultado = array;
   document.getElementById('resultado-shift').textContent = resultado;
 }
 
 function executarUnshift() {
   const array = ['🍌', '🍇'];
-  const resultado = 'Resultado da operação unshift';
+  array.unshift("🍓")//coloca na primeira posição
+  const resultado = array;
   document.getElementById('resultado-unshift').textContent = resultado;
 }
 
 function executarIncludes() {
   const array =  ['🍎', '🍌', '🍇'];
-  const resultado = array;
+  const resultado = array.includes("🥝");//pesquisa
   document.getElementById('resultado-includes').textContent = resultado;
 }
 
 function executarReverse() {
   const array = ['🍎', '🍌', '🍇'];
-  const resultado = array;
+  const resultado = array.reverse();//inverte a ordem
   document.getElementById('resultado-reverse').textContent = resultado;
 }
 
 function executarSort() {
-  const array = [3, 1, 4, 2];
+  const array = [3, 1, 4, 2, 11];
   const array2 = ["Brasil", "Argentina", "Noruega", "Italia"];
 
-  const resultado = array;
+  const resultado = array.sort((a,b) => a-b);
   document.getElementById('resultado-sort').textContent = resultado;
-  const resultado2 = array2;
+  const resultado2 = array2.sort();//muda a ordem pra alfabética(caso queira de forma decrescente use reverse())
   document.getElementById('resultado-sort2').textContent = resultado2;
 }
 
 function executarSlice() {
   const array = ['🍎', '🍌', '🍇', '🍓'];
-  const resultado = array;
+  const resultado = array.slice(0,2);
   document.getElementById('resultado-slice').textContent = resultado;
 }
 
@@ -73,31 +77,33 @@ function executarJoin() {
 
 function executarForEach() {
   const array = ['🍎', '🍌', '🍇'];
-  const resultado = 'Resultado da operação forEach';
+  const resultado = array.forEach(pegaItem => pegaItem);
   document.getElementById('resultado-foreach').textContent = resultado;
 }
 
 function executarMap() {
   const array = ['🍎', '🍌', '🍇'];
-  const resultado = 'Resultado da operação map';
+  const resultado = array.map(pegaItem => `✅${pegaItem}\n`);
   document.getElementById('resultado-map').textContent = resultado;
 }
 
  function executarMapHTML() {
     const dispositivos = ['🎮', '🕹️', '💻'];
-    const resultado = 'Resultado da operação map inserindo HTML';
+    const resultado = dispositivos.map((pegaItem,index) => {
+      return `<h1>${pegaItem}Item ${index+1} em promoção</h1>`
+    });
     document.getElementById('resultado-map-html').innerHTML = resultado.join('<br>');
   }
 
 function executarFilter() {
   const array = ['🍎', '🍌', '🍇'];
-  const resultado = 'Resultado da operação filter';
+  const resultado = array.filter(pegaItem => pegaItem == "🍎");
   document.getElementById('resultado-filter').textContent = resultado;
 }
 
 function executarFind() {
   const array =  ['🍎', '🍌', '🍇'];
-  const resultado = 'Resultado da operação find';
+  const resultado = array.find(pegaItem => pegaItem === '🍇');
   document.getElementById('resultado-find').textContent = resultado;
 }
 
@@ -109,7 +115,7 @@ function executarFindIndex() {
 
 function executarReduce() {
   const array = [1, 2, 3, 4];
-  const resultado = 'Resultado da operação reduce';
+  const resultado = array.reduce((totalAcumulado, valorAtual) => (totalAcumulado + valorAtual),0);
   document.getElementById('resultado-reduce').textContent = resultado;
 }
 
@@ -134,3 +140,19 @@ function executarEncadeamento() {
 }
 
 
+
+
+
+
+let nome = ['Caio',1,'Miguel','seila']
+console.log(nome[2])
+//Atualizar um array
+nome[2] = 'Sim'
+//Saber um tamanho do array
+console.log(nome.length)
+
+
+function ordena (a,b){//Function
+  return a - b;
+};
+const ordenar = (a,b) => a-b;//ArrowFunction
