@@ -5,6 +5,7 @@ import Usuarios from "../pages/Usuarios";
 import Relatorios from "../pages/Relatorios";
 import Configuracoes from "../pages/Configuracoes";
 import PageNotFound from "../pages/PageNotFound";
+import PostsUsuarios from "../pages/PostsUsuarios";
 
 export const router = createBrowserRouter([
   {
@@ -25,13 +26,17 @@ export const router = createBrowserRouter([
         element: <Usuarios />,
       },
       {
+        path: "usuarios/:id/posts",
+        element: <PostsUsuarios/>,
+      },
+      {
         path: "relatorios",
         element: <Relatorios />,
       },
       {
         path: "configuracoes",
         element: <Configuracoes />,
-      },
+      }
     ],
   },
 ]);
