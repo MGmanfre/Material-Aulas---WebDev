@@ -7,15 +7,28 @@ export default function Home() {
   const [reactRepos, setReactRepos] = useState([])
   const [pythonRepos, setPythonRepos] = useState([])
   const API = import.meta.env.VITE_GITHUB_API
+  const token = import.meta.env.VITE_API_TOKEN
 
   useEffect(()=> {
-    fetch(`${API}node&per_page=5`)
+    fetch(`${API}node&per_page=5`, {
+      headers: {
+        Autorization: `token ${token}`
+      }
+    })
     .then(res => res.json())
     .then(data => setNodeRepos(data.items))
-    fetch(`${API}react&per_page=5`)
+    fetch(`${API}react&per_page=5`, {
+      headers: {
+        Autorization: `token ${token}`
+      }
+    })
     .then(res => res.json())
     .then(data => setReactRepos(data.items))
-    fetch(`${API}python&per_page=5`)
+    fetch(`${API}python&per_page=5`, {
+      headers: {
+        Autorization: `token ${token}`
+      }
+    })
     .then(res => res.json())
     .then(data => setPythonRepos(data.items))
   },[])
